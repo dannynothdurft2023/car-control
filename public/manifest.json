@@ -1,0 +1,10 @@
+{
+    "name": "Car Control",
+    "short_name": "Car",
+    "theme_color": "#fff",
+    "background_color": "#fff",
+    "display": "fullscreen",
+    "orientation": "landscape",
+    "scope": "/",
+    "start_url": "/"
+}

@@ -1,0 +1,29 @@
+h1 {
+  text-align: center;
+}
+
+.cc-profile-ct {
+  position: relative;
+
+  .cc-profileImageUpload-b {
+    position: absolute;
+    background-color: #eeeeee;
+    height: 50px;
+    width: 50px;
+    bottom: calc(50% - 121px);
+    right: calc(50% - 121px);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+      box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
