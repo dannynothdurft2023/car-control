@@ -12,8 +12,6 @@ export async function GET() {
   try {
     const getCarInfo = await colCar.find().toArray();
 
-    console.log(getCarInfo);
-
     if (getCarInfo) {
       return NextResponse.json({
         success: true,
