@@ -1,5 +1,6 @@
 import "@/styles/global.scss";
 import type { Metadata } from "next";
+import LayoutProvider from "./provider/layoutProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
-      <body>{children}</body>
+      <LayoutProvider>{children}</LayoutProvider>
     </html>
   );
 }
