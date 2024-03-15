@@ -1,4 +1,6 @@
 "use client";
+import Card from "@/components/card";
+import InfoCard from "@/components/infoCard";
 import "@/styles/home.scss";
 import Image from "next/image";
 
@@ -37,6 +39,29 @@ export default function Home() {
           />
         </span>
       </div>
+      <InfoCard title="Kilometerstand" value="200.000" bg="#50b9fa" />
+      <div className="cc-dashboard-ct">
+        <Card bg="#be75f7" title="Anschaffung" value="500" icon="/garage.svg" />
+        <Card
+          bg="#ff939b"
+          title="Reparatur"
+          value="106.57"
+          icon="/repair.svg"
+        />
+        <Card bg="#ffca72" title="Zubehör" value="39" icon="/car.svg" />
+        <Card
+          bg="#8ad294"
+          title="laufende Kosten"
+          value="50.04"
+          icon="/gas.svg"
+        />
+      </div>
+      <Card
+        bg="#50b9fa"
+        title="Gesammt Kosten"
+        value="695.61"
+        icon="/money.svg"
+      />
     </main>
   );
 }

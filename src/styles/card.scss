@@ -1,0 +1,33 @@
+.cc-card-ct {
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  position: relative;
+  min-height: 70px;
+
+  p {
+    font-size: 1.2rem;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .cc-card-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+.cc-infoCard-ct {
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  p {
+    font-size: 1.2rem;
+  }
+}
