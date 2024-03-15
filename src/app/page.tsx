@@ -7,6 +7,7 @@ import Image from "next/image";
 import AddButton from "@/components/addButton";
 import AddModal from "@/components/addModal";
 import BurgerButton from "@/components/burgerButton";
+import Navi from "@/components/navi";
 
 export default function Home() {
   const [modal, setModal] = useState(false);
@@ -23,7 +24,7 @@ export default function Home() {
     <main>
       <h1>Seat Arosa</h1>
       <BurgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      {menuOpen ? "Navi" : null}
+      {menuOpen ? <Navi /> : null}
       <div className="cc-profile-ct">
         <Image
           src="/car-profile.jpg"
