@@ -1,0 +1,56 @@
+.menu-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+
+.menu-btn_burger {
+    width: 30px;
+    height: 3px;
+    background: #000000;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255,101,47,0.2);
+    transition: all 0.5s ease-in-out;
+}
+
+.menu-btn_burger::before,
+.menu-btn_burger::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background: #000000;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255,101,47,0.2);
+    transition: all 0.5s ease-in-out;
+}
+
+.menu-btn_burger::before {
+    transform: translateY(-10px);
+}
+.menu-btn_burger::after {
+    transform: translateY(10px);
+}
+
+/* ANIMATION hier */
+
+.menu-btn.open .menu-btn_burger {
+    background: transparent;
+    box-shadow: none;
+}
+
+.menu-btn.open .menu-btn_burger::before {
+    transform: rotate(45deg);
+}
+
+.menu-btn.open .menu-btn_burger::after {
+    transform: rotate(-45deg);
+}

@@ -1,7 +1,14 @@
 import "@/styles/card.scss";
 import Image from "next/image";
 
-const Card = ({ bg, title, value, icon }) => {
+interface CardProps {
+  bg: string;
+  title: string;
+  value: string;
+  icon: string;
+}
+
+const Card: React.FC<CardProps> = ({ bg, title, value, icon }) => {
   return (
     <div className="cc-card-ct" style={{ backgroundColor: `${bg}` }}>
       <h4>{title}</h4>

@@ -7,6 +7,7 @@ main {
     rgba(244, 198, 241, 0.5116247182466737) 100%
   );
   padding: 10px;
+  position: relative;
 }
 
 h1 {
@@ -36,6 +37,7 @@ h1 {
 
     &:active {
       box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
+      scale: 0.9;
     }
   }
 }
@@ -46,4 +48,27 @@ h1 {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 10px;
+}
+
+.cc-addbutton-button {
+  background-color: #ffffff;
+  display: flex;
+  border-radius: 50%;
+  padding: 2px;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+
+    &:hover {
+      box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+      box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
+      scale: 0.9;
+    }
 }
