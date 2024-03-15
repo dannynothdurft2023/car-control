@@ -27,6 +27,7 @@ export default function Home() {
           height={280}
           alt="Car Profile"
           title="Car Profile"
+          priority={true}
           style={{
             display: "block",
             objectFit: "cover",
