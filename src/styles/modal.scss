@@ -1,0 +1,19 @@
+.ct-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($color: #ffffff, $alpha: 0.2);
+  z-index: 10000;
+
+  .ct-add-modal {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px #000000;
+  }
+}
