@@ -28,7 +28,6 @@ export default function Home() {
           const response = await axios.get(`${currentUrl}/api/get-all-issue`);
           if (response.data.success) {
             setIssues(response.data.data);
-            console.log(response.data.data);
           } else {
             console.log("Etwas ist schief gelaufen");
           }
