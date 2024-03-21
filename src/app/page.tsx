@@ -1,14 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "@/components/card";
 import InfoCard from "@/components/infoCard";
 import "@/styles/home.scss";
 import Image from "next/image";
 import AddButton from "@/components/addButton";
 import AddModal from "@/components/addModal";
+import axios from "axios";
 
 export default function Home() {
+  const currentUrl =
+    typeof window !== "undefined" ? window.location.origin : "";
   const [modal, setModal] = useState(false);
+  const [issues, setIssues] = useState([]);
 
   const uploadProfileImage = () => {
     console.log("Funktion kommt später");
@@ -16,6 +20,72 @@ export default function Home() {
     //! Die URL wird in der Datenbank z. B. MongoDB gespeichert
     //! Es muss noch ein Car Profile Shema angelegt werden.
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const getAllIssue = async () => {
+        try {
+          const response = await axios.get(`${currentUrl}/api/get-all-issue`);
+          if (response.data.success) {
+            setIssues(response.data.data);
+            console.log(response.data.data);
+          } else {
+            console.log("Etwas ist schief gelaufen");
+          }
+        } catch (error: any) {
+          console.error(error.message);
+        }
+      };
+      getAllIssue();
+    }, 1);
+    return () => clearTimeout(timer);
+  }, []);
+
+  interface Issue {
+    category: string;
+    text: string;
+    value: string;
+  }
+
+  // const laufendeKostenItems: Issue[] = issues.filter(
+  //   (item: Issue) => item.category === "laufende Kosten"
+  // );
+
+  const summeAnschaffungItems: number = issues.reduce(
+    (sum: number, item: Issue) => {
+      return item.category === "Anschaffung"
+        ? sum + parseFloat(item.value)
+        : sum;
+    },
+    0
+  );
+
+  const summeReparaturItems: number = issues.reduce(
+    (sum: number, item: Issue) => {
+      return item.category === "Reparatur" ? sum + parseFloat(item.value) : sum;
+    },
+    0
+  );
+
+  const summeZubehoerItems: number = issues.reduce(
+    (sum: number, item: Issue) => {
+      return item.category === "Zubehör" ? sum + parseFloat(item.value) : sum;
+    },
+    0
+  );
+
+  const summeLaufendeKosten: number = issues.reduce(
+    (sum: number, item: Issue) => {
+      return item.category === "laufende Kosten"
+        ? sum + parseFloat(item.value)
+        : sum;
+    },
+    0
+  );
+
+  const totalCost: number = issues.reduce((sum: number, item: Issue) => {
+    return sum + parseFloat(item.value);
+  }, 0);
 
   return (
     <main>
@@ -50,27 +120,32 @@ export default function Home() {
         <Card
           bg="#be75f7"
           title="Anschaffung"
-          value="500"
+          value={summeAnschaffungItems.toFixed(2)}
           icon="/icons/garage.svg"
         />
         <Card
           bg="#ff939b"
           title="Reparatur"
-          value="106.57"
+          value={summeReparaturItems.toFixed(2)}
           icon="/icons/repair.svg"
         />
-        <Card bg="#ffca72" title="Zubehör" value="39" icon="/icons/car.svg" />
+        <Card
+          bg="#ffca72"
+          title="Zubehör"
+          value={summeZubehoerItems.toFixed(2)}
+          icon="/icons/car.svg"
+        />
         <Card
           bg="#8ad294"
           title="laufende Kosten"
-          value="50.04"
+          value={summeLaufendeKosten.toFixed(2)}
           icon="/icons/gas.svg"
         />
       </div>
       <Card
         bg="#50b9fa"
         title="Gesammt Kosten"
-        value="695.61"
+        value={totalCost.toFixed(2)}
         icon="/icons/money.svg"
       />
       <AddButton modal={modal} setModal={setModal} />
