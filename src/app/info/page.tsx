@@ -3,10 +3,17 @@ import "@/styles/carinfo.scss";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+interface Car {
+  // Definiere hier die Eigenschaften deines Car-Objekts
+  make: string;
+  model: string;
+  // ...
+}
+
 const CarInfoPage = () => {
   const currentUrl =
     typeof window !== "undefined" ? window.location.origin : "";
-  const [car, setCar] = useState();
+  const [car, setCar] = useState<Car | null>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
