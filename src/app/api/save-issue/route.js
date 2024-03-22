@@ -1,22 +1,27 @@
 import { MongoClient } from "mongodb";
 import { NextResponse } from "next/server";
 
-const uri: string = process.env.MONGODB_URI || "";
+const uri = process.env.MONGODB_URI || "";
 const client = new MongoClient(uri);
 
-export async function GET() {
+export async function POST(req) {
   await client.connect();
   const database = client.db("car-control");
-  const colCar = database.collection("car");
+  const colIssue = database.collection("issue");
 
   try {
-    const getCarInfo = await colCar.find().toArray();
+    const { data } = await req.json();
 
-    if (getCarInfo) {
+    const save = await colIssue.insertOne({
+      category: data.category,
+      text: data.text,
+      value: data.value,
+    });
+
+    if (save) {
       return NextResponse.json({
         success: true,
         message: "Auto gefunden",
-        data: getCarInfo[0],
       });
     }
   } catch (error) {
