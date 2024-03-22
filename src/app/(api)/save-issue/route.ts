@@ -3,9 +3,7 @@ import { NextResponse } from "next/server";
 import connectToDatabase from "@/lib/db";
 
 export async function POST(req: Request) {
-  await client.connect();
-  const database = client.db("car-control");
-  const colIssue = database.collection("issue");
+  const collection = await connectToDatabase("issue");
 
   try {
     const { data } = await req.json();
