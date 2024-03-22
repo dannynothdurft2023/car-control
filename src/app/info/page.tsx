@@ -21,7 +21,6 @@ const CarInfoPage = () => {
         try {
           const response = await axios.get(`${currentUrl}/carinfo`);
           if (response.data.success) {
-            console.log(response.data.data);
             setCar(response.data.data);
           } else {
             console.log("Etwas ist schief gelaufen");
