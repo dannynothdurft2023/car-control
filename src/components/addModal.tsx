@@ -28,7 +28,7 @@ const AddModal: React.FC<AddButtonProps> = ({ modal, setModal }) => {
 
   const saveIssue = async () => {
     try {
-      const response = await axios.post(`${currentUrl}/api/save-issue`, {
+      const response = await axios.post(`${currentUrl}/save-issue`, {
         data: issue,
       });
       if (response) {
