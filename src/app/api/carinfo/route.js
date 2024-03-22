@@ -8,8 +8,9 @@ export async function GET() {
   await client.connect();
   const database = client.db("car-control");
   const colCar = database.collection("car");
-
+  console.log("vor try");
   try {
+    console.log("in Try");
     const getCarInfo = await colCar.find().toArray();
 
     if (getCarInfo) {
