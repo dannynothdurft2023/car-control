@@ -25,7 +25,7 @@ const CarInfoPage = () => {
       getCarInfo();
     }, 1);
     return () => clearTimeout(timer);
-  }, []);
+  }, [currentUrl]);
 
   return (
     <main>
