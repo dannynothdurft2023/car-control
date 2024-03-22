@@ -42,6 +42,10 @@ const CarInfoPage = () => {
           <tbody>
             {car &&
               Object.entries(car).map(([key, value]) => {
+                console.log(car);
+                if (key === "_id") {
+                  return null;
+                }
                 return (
                   <tr key={key}>
                     <td>{key}:</td>
