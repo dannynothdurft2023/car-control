@@ -6,7 +6,7 @@ async function connectToDatabase(cluster: string): Promise<Collection> {
 
   try {
     await client.connect();
-    const database: Db = client.db("car-control");
+    const database: Db = client.db();
     const collection: Collection = database.collection(cluster);
     return collection;
   } catch (error) {
