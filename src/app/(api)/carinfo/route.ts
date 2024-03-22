@@ -14,14 +14,14 @@ export async function GET() {
 
     //if (getCarInfo) {
 
-      return NextResponse.json({
-        success: true,
-        message: "Auto gefunden",
-        data: "hey"
-        //data: getCarInfo[0],
-        status: 200,
-      });
-   // }
+    return NextResponse.json({
+      success: true,
+      message: "Auto gefunden",
+      data: "hey",
+      //data: getCarInfo[0],
+      status: 200,
+    });
+    // }
   } catch (error) {
     return NextResponse.json({ message: error }, { status: 500 });
   }
