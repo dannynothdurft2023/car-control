@@ -38,7 +38,7 @@ export default function Home() {
       getAllIssue();
     }, 1);
     return () => clearTimeout(timer);
-  }, []);
+  }, [currentUrl]);
 
   interface Issue {
     category: string;
