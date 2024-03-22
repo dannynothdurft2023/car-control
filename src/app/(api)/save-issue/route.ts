@@ -1,10 +1,8 @@
-import { MongoClient } from "mongodb";
 import { NextResponse } from "next/server";
 
-const uri = process.env.MONGODB_URI;
-const client = new MongoClient(uri);
+import connectToDatabase from "@/lib/db";
 
-export async function POST(req) {
+export async function POST(req: Request) {
   await client.connect();
   const database = client.db("car-control");
   const colIssue = database.collection("issue");
@@ -12,7 +10,7 @@ export async function POST(req) {
   try {
     const { data } = await req.json();
 
-    const save = await colIssue.insertOne({
+    const save = await collection.insertOne({
       category: data.category,
       text: data.text,
       value: data.value,
