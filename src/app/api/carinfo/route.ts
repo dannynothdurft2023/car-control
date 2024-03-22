@@ -23,9 +23,3 @@ export async function GET() {
     return NextResponse.json({ message: error }, { status: 500 });
   }
 }
-
-export async function POST() {}
-
-export async function UPDATE() {}
-
-export async function DELETE() {}

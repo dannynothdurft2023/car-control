@@ -28,7 +28,3 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: error }, { status: 500 });
   }
 }
-
-export async function UPDATE() {}
-
-export async function DELETE() {}
