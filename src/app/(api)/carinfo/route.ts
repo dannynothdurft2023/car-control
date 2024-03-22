@@ -1,13 +1,13 @@
-import { MongoClient } from "mongodb";
+import { MongoClient, Collection, Db } from "mongodb";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const uri = process.env.MONGODB_URI;
-  const client = new MongoClient(uri);
+  const uri: string = process.env.MONGODB_URI || "";
+  const client: MongoClient = new MongoClient(uri);
 
   await client.connect();
-  const database = client.db("car-control");
-  const colCar = database.collection("car");
+  const database: Db = client.db("car-control");
+  const colCar: Collection = database.collection("car");
 
   try {
     const getCarInfo = await colCar.find().toArray();

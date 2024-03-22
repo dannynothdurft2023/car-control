@@ -19,7 +19,7 @@ const CarInfoPage = () => {
     const timer = setTimeout(() => {
       const getCarInfo = async () => {
         try {
-          const response = await axios.get(`/api/carinfo`);
+          const response = await axios.get(`${currentUrl}/carinfo`);
           if (response.data.success) {
             console.log(response.data.data);
             setCar(response.data.data);
