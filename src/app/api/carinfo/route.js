@@ -1,10 +1,10 @@
 import { MongoClient } from "mongodb";
 import { NextResponse } from "next/server";
 
-const uri = process.env.MONGODB_URI;
-const client = new MongoClient(uri);
-
 export async function GET() {
+  const uri = process.env.MONGODB_URI;
+  const client = new MongoClient(uri);
+
   await client.connect();
   const database = client.db("car-control");
   const colCar = database.collection("car");
