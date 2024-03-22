@@ -6,7 +6,7 @@ import axios from "axios";
 const CarInfoPage = () => {
   const currentUrl =
     typeof window !== "undefined" ? window.location.origin : "";
-  const [car, setCar] = useState({ Fahrzeug: "wird geladen" });
+  const [car, setCar] = useState();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -14,6 +14,7 @@ const CarInfoPage = () => {
         try {
           const response = await axios.get(`${currentUrl}/api/carinfo`);
           if (response.data.success) {
+            console.log(response.data.data);
             setCar(response.data.data);
           } else {
             console.log("Etwas ist schief gelaufen");
@@ -33,17 +34,18 @@ const CarInfoPage = () => {
       <div className="cc-carinfo-ct">
         <table>
           <tbody>
-            {Object.entries(car).map(([key, value]) => {
-              if (key === "_id") {
-                return null;
-              }
-              return (
-                <tr key={key}>
-                  <td>{key}:</td>
-                  <td>{value}</td>
-                </tr>
-              );
-            })}
+            {car &&
+              Object.entries(car).map(([key, value]) => {
+                if (key === "_id") {
+                  return null;
+                }
+                return (
+                  <tr key={key}>
+                    <td>{key}:</td>
+                    <td>{value}</td>
+                  </tr>
+                );
+              })}
           </tbody>
         </table>
       </div>
