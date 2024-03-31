@@ -92,8 +92,8 @@ export default function Home() {
       <div className="cc-profile-ct">
         <Image
           src="/car-profile.jpg"
-          width={225}
-          height={225}
+          width={200}
+          height={200}
           alt="Car Profile"
           title="Car Profile"
           priority={true}
@@ -114,7 +114,6 @@ export default function Home() {
           />
         </span>
       </div>
-      <InfoCard title="Kilometerstand" value="200.000" bg="#50b9fa" />
       <div className="cc-dashboard-ct">
         <Card
           bg="#be75f7"
