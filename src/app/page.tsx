@@ -92,8 +92,8 @@ export default function Home() {
       <div className="cc-profile-ct">
         <Image
           src="/car-profile.jpg"
-          width={280}
-          height={280}
+          width={225}
+          height={225}
           alt="Car Profile"
           title="Car Profile"
           priority={true}
