@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Card from "@/components/card";
-import InfoCard from "@/components/infoCard";
 import "@/styles/home.scss";
 import Image from "next/image";
 import AddButton from "@/components/addButton";
@@ -45,10 +44,6 @@ export default function Home() {
     text: string;
     value: string;
   }
-
-  // const laufendeKostenItems: Issue[] = issues.filter(
-  //   (item: Issue) => item.category === "laufende Kosten"
-  // );
 
   const summeAnschaffungItems: number = issues.reduce(
     (sum: number, item: Issue) => {
@@ -119,24 +114,28 @@ export default function Home() {
           bg="#be75f7"
           title="Anschaffung"
           value={summeAnschaffungItems.toFixed(2)}
+          api={"anschaffung"}
           icon="/icons/garage.svg"
         />
         <Card
           bg="#ff939b"
           title="Reparatur"
           value={summeReparaturItems.toFixed(2)}
+          api={"reparatur"}
           icon="/icons/repair.svg"
         />
         <Card
           bg="#ffca72"
           title="Zubehör"
           value={summeZubehoerItems.toFixed(2)}
+          api={"zubehoer"}
           icon="/icons/car.svg"
         />
         <Card
           bg="#8ad294"
           title="laufende Kosten"
           value={summeLaufendeKosten.toFixed(2)}
+          api={"laufende-kosten"}
           icon="/icons/gas.svg"
         />
       </div>
