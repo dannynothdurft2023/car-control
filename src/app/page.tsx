@@ -24,7 +24,9 @@ export default function Home() {
     const timer = setTimeout(() => {
       const getAllIssue = async () => {
         try {
-          const response = await axios.get(`${currentUrl}/get-all-issue`);
+          const response = await axios.get(`${currentUrl}/get-all-issue`, {
+            cache: "no-store",
+          });
           if (response.data.success) {
             setIssues(response.data.data);
           } else {
