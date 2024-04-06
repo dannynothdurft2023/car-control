@@ -15,7 +15,6 @@ const ListPage = () => {
             list: window.location.pathname,
           });
           if (response.data.success) {
-            console.log(response.data.data);
             setIssues(response.data.data);
           } else {
             console.log("Etwas ist schief gelaufen");

@@ -24,13 +24,13 @@ export default function Home() {
     const timer = setTimeout(() => {
       const getAllIssue = async () => {
         try {
-          const response = await axios.get(`${currentUrl}/get-all-issue`, {
-            headers: {
-              "cache-control": "no-store",
-            },
+          const response = await fetch(`${currentUrl}/get-all-issue`, {
+            cache: "no-store",
           });
-          if (response.data.success) {
-            setIssues(response.data.data);
+          const data = await response.json();
+
+          if (data.success) {
+            setIssues(data.data);
           } else {
             console.log("Etwas ist schief gelaufen");
           }
