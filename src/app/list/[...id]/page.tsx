@@ -34,7 +34,7 @@ const ListPage = () => {
       {issues
         ? issues.map((issue: any) => {
             return (
-              <div>
+              <div key={issue._id}>
                 <p>
                   {issue.text} - {issue.value} €
                 </p>

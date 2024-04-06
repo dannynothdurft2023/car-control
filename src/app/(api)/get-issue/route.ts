@@ -19,7 +19,7 @@ export async function POST(req: Request) {
       "laufende-kosten": "laufende Kosten",
     };
 
-    let filterList: string | null = filterMap[extractedParam] || null;
+    let filterList: string = filterMap[extractedParam];
 
     const issues = await collection.find({ category: filterList }).toArray();
 
