@@ -1,10 +1,13 @@
 {
-    "routes": [
+    "headers": [
       {
-        "src": "/get-all-issue",
-        "headers": {
-          "Cache-Control": "no-cache"
-        }
+        "source": "/",
+        "headers": [
+                {
+                    "key":"Cache-Control",
+                    "value":"no-cache"
+                }
+            ]
       }
     ]
   }
