@@ -19,3 +19,32 @@ a {
   }
 }
 
+.cc-list-body {
+  min-height: 100vh;
+  background: rgb(255, 225, 187);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 225, 187, 1) 0%,
+    rgba(244, 198, 241, 0.5116247182466737) 100%
+  );
+  padding: 60px 10px 0;
+
+  .cc-list-card {
+    padding: 10px;
+    background-color: #ffca72;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+
+    .remove-btn {
+      position: absolute;
+      bottom: 0;
+      right: 10px;
+      border: none;
+      background: none;
+    }
+  }
+}
