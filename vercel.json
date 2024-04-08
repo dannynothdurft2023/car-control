@@ -1,0 +1,14 @@
+{
+    "routes": [
+      {
+        "src": "/get-all-issue",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      }
+    ]
+  }
+  
