@@ -15,7 +15,7 @@ const Card: React.FC<CardProps> = ({ bg, title, value, icon, api }) => {
     <Link
       className="cc-card-ct"
       style={{ backgroundColor: `${bg}` }}
-      href={`/list/${api}`}
+      href={api ? `/list/${api}` : ""}
     >
       <h4>{title}</h4>
       <p>{value} €</p>
