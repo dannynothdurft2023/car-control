@@ -24,10 +24,12 @@ export default function Home() {
     const timer = setTimeout(() => {
       const getAllIssue = async () => {
         try {
-          const response = await fetch(`${currentUrl}/get-all-issue`, {
-            cache: "no-store",
+          const response = await axios.get(`${currentUrl}/get-all-issue`, {
+            headers: {
+              "Cache-Control": "no-cache",
+            },
           });
-          const data = await response.json();
+          const data = response.data;
 
           if (data.success) {
             setIssues(data.data);
