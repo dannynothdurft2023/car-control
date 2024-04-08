@@ -37,21 +37,3 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: error }, { status: 500 });
   }
 }
-
-export async function DELETE(req: Request) {
-  const collection = await connectToDatabase("issue");
-
-  try {
-    const data = await req.body.json();
-
-    console.log(data);
-
-    return NextResponse.json({
-      success: true,
-      message: "Auto gefunden",
-      data: "Ist angekommen",
-    });
-  } catch (error) {
-    return NextResponse.json({ message: error }, { status: 500 });
-  }
-}
