@@ -24,11 +24,7 @@ export default function Home() {
     const timer = setTimeout(() => {
       const getAllIssue = async () => {
         try {
-          const response = await axios.get(`${currentUrl}/get-all-issue`, {
-            headers: {
-              "Cache-Control": "no-cache",
-            },
-          });
+          const response = await axios.post(`${currentUrl}/get-all-issue`);
           const data = response.data;
 
           if (data.success) {

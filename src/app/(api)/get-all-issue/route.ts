@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import connectToDatabase from "@/lib/db";
 
-export async function GET() {
+export async function POST() {
   const collection = await connectToDatabase("issue");
 
   try {
